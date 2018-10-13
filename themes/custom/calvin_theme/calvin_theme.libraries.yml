@@ -3,4 +3,3 @@ global:
   css:
     base:
       css/calvin_theme.css: {}
-      '<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet" type-"text/css">': { type: external }
