@@ -1,0 +1,32 @@
+calvin.admin_form:
+  path: '/calvin/form/admin'
+  defaults:
+    _form: '\Drupal\calvin\Form\AdminForm'
+    _title: 'Admin Form'
+  requirements:
+    _access: 'TRUE'
+  
+
+calvin.about_me_controller_view:
+  path: '/calvin'
+  defaults:
+    _controller: '\Drupal\calvin\Controller\AboutMeController::view'
+    _title: "Calvin's Landing Page"
+  requirements:
+    _permission: 'access content'
+
+calvin.node_query_controller_query:
+  path: '/api/calvin/{nid}'
+  defaults:
+    _controller: '\Drupal\calvin\Controller\NodeQueryController::query'
+    _title: 'query'
+  requirements:
+    _permission: 'access content'
+
+calvin.node_query_controller_query_all:
+  path: '/api/calvin'
+  defaults:
+    _controller: '\Drupal\calvin\Controller\NodeQueryController::query'
+    _title: 'query'
+  requirements:
+    _permission: 'access content'
