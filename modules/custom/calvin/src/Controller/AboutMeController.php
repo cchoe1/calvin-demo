@@ -18,9 +18,6 @@ class AboutMeController extends ControllerBase {
   public function view() {
     $build = [
       '#theme' => 'calvin',
-      '#attached' => [
-        'library' => 'calvin/calvin'
-      ],
     ];
     return $build;
   }
