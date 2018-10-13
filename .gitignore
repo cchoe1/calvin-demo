@@ -69,3 +69,6 @@ vendor/
 *.swp
 *.swo
 *.swn
+
+# Ignore node_modules
+themes/custom/*/node_modules/
