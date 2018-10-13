@@ -1,0 +1,27 @@
+definitions:
+  contact__site_page:
+    enabled: true
+    menu_name: footer
+    parent: ''
+    weight: 0
+    expanded: false
+  admin_toolbar_tools__add_content:
+    weight: 1
+    menu_name: admin
+    parent: system.admin_content
+    enabled: true
+    expanded: false
+  comment__admin:
+    weight: 2
+    menu_name: admin
+    parent: system.admin_content
+    expanded: false
+    enabled: true
+  admin_toolbar_tools__view__files:
+    weight: 3
+    menu_name: admin
+    parent: system.admin_content
+    expanded: false
+    enabled: true
+_core:
+  default_config_hash: jdY7AU0tU-QsjmiOw3W8vwpYMb-By--_MSFgbqKUTYM

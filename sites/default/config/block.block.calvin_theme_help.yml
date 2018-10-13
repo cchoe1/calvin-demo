@@ -1,0 +1,22 @@
+uuid: c563f7e7-ea24-4e2c-89da-72285ed8c0f7
+langcode: en
+status: true
+dependencies:
+  module:
+    - help
+  theme:
+    - calvin_theme
+_core:
+  default_config_hash: 8I8iACSa0sKO3k3jlvUG1ge52rfcKX7USJAQYnzuBgg
+id: calvin_theme_help
+theme: calvin_theme
+region: content
+weight: -30
+provider: null
+plugin: help_block
+settings:
+  id: help_block
+  label: Help
+  provider: help
+  label_display: '0'
+visibility: {  }

@@ -1,0 +1,22 @@
+uuid: b12b8f79-5b65-4f37-af09-2834db09ca5c
+langcode: en
+status: true
+dependencies:
+  module:
+    - system
+  theme:
+    - calvin_theme
+_core:
+  default_config_hash: 9EoWV2Lot6FVSr50t4hoKgiz1LIXYWNG-IIPYsWxBqo
+id: calvin_theme_content
+theme: calvin_theme
+region: content
+weight: 0
+provider: null
+plugin: system_main_block
+settings:
+  id: system_main_block
+  label: 'Main page content'
+  provider: system
+  label_display: '0'
+visibility: {  }
