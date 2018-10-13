@@ -1,0 +1,6 @@
+name: calvin-demo
+recipe: pantheon
+config:
+  framework: drupal8
+  site: calvin-demo
+  id: 8b9e6fe5-9b18-4de5-9127-8490669bb896
