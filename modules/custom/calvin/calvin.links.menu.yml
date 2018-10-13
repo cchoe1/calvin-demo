@@ -1,0 +1,7 @@
+calvin.calvin_settings_form:
+  title: Calvin settings
+  description: 'Calvin settings'
+  route_name: calvin.admin_form
+  parent: system.admin_content
+  weight: 0
+
