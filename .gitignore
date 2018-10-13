@@ -64,3 +64,8 @@ Thumbs.db
 
 # Ignore vendors
 vendor/
+
+# Ignore swp files
+*.swp
+*.swo
+*.swn
