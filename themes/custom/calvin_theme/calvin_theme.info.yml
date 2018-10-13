@@ -1,0 +1,7 @@
+name: calvin_theme
+description: "Custom theme"
+core: 8.x
+type: theme
+base theme: bartik
+libraries:
+ - calvin_theme/global
