@@ -9,7 +9,9 @@
         "pantheon-systems/terminus": "^1.9",
         "alchemy/zippy": "0.4.3",
         "symfony/dom-crawler": "~2.8",
-        "drupal/console": "^1.8"
+        "drupal/console": "^1.8",
+        "drupal/adminimal_admin_toolbar": "^1.8",
+        "drupal/devel": "^1.2"
     },
     "replace": {
         "drupal/core": "^8.6"
