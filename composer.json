@@ -6,8 +6,10 @@
     "require": {
         "composer/installers": "^1.0.24",
         "wikimedia/composer-merge-plugin": "^1.4",
-        "symfony/console": "3.4.4",
-        "pantheon-systems/terminus": "^1.9"
+        "pantheon-systems/terminus": "^1.9",
+        "alchemy/zippy": "0.4.3",
+        "symfony/dom-crawler": "~2.8",
+        "drupal/console": "^1.8"
     },
     "replace": {
         "drupal/core": "^8.6"
