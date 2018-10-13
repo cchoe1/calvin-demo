@@ -1,0 +1,35 @@
+<?php
+
+/**
+ * @file
+ * Contains calvin.module.
+ */
+
+use Drupal\Core\Routing\RouteMatchInterface;
+
+/**
+ * Implements hook_help().
+ */
+function calvin_help($route_name, RouteMatchInterface $route_match) {
+  switch ($route_name) {
+    // Main module help for the calvin module.
+    case 'help.page.calvin':
+      $output = '';
+      $output .= '<h3>' . t('About') . '</h3>';
+      $output .= '<p>' . t('The best module ever') . '</p>';
+      return $output;
+
+    default:
+  }
+}
+
+/**
+ * Implements hook_theme().
+ */
+function calvin_theme() {
+  return [
+    'calvin' => [
+      'render element' => 'children',
+    ],
+  ];
+}
