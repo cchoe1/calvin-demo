@@ -30,3 +30,11 @@ calvin.node_query_controller_query_all:
     _title: 'query'
   requirements:
     _permission: 'access content'
+
+calvin.admin_form_view_controller_view:
+  path: '/calvin/view'
+  defaults:
+    _controller: '\Drupal\calvin\Controller\AdminFormViewController::view'
+    _title: 'view'
+  requirements:
+    _role: 'administrator'

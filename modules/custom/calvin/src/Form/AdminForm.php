@@ -7,6 +7,7 @@ use Drupal\Core\Form\FormStateInterface;
 use Symfony\Component\DependencyInjection\ContainerInterface;
 use Drupal\file\Entity\File;
 use Drupal\user\PrivateTempStoreFactory;
+use Drupal\Core\Url;
 
 /**
  * Class AdminForm.
@@ -36,8 +37,8 @@ class AdminForm extends FormBase {
    * {@inheritdoc}
    */
   public function buildForm(array $form, FormStateInterface $form_state) {
-    //$form['#attached']['library'][] = 'calvin/custom_library';
     $session = $this->tempStore->get('calvin');
+
     $form['#attached']['drupalSettings']['calvin'] = [
       'title' => $session->get('title') ?? '',
       'body' => $session->get('body') ?? '',
@@ -71,9 +72,15 @@ class AdminForm extends FormBase {
       ]
     ];
 
-    $form['submit'] = [
+    $form['redirect_back'] = [
       '#type' => 'submit',
-      '#value' => $this->t('Submit'),
+      '#value' => $this->t('Redirect Back'),
+      '#submit' => ['::submitForm']
+    ];
+    $form['redirect_template'] = [
+      '#type' => "submit",
+      '#value' => $this->t("Redirect to Template"),
+      '#submit' => ['::redirectToTemplate']
     ];
 
     return $form;
@@ -96,17 +103,50 @@ class AdminForm extends FormBase {
 
     $fid = $form_state->getValue(['file', 0]);
 
-    $file = File::load($fid);
-    $file->setTemporary();
-    $file->save();
-    $file_uri = $file->getFileUri();
+    if ($fid) {
+
+      $file = File::load($fid);
+      $file->setTemporary();
+      $file->save();
+      $file_uri = $file->getFileUri();
+    }
 
 
-    $session->set('title', $title);
-    $session->set('body', $body);
-    $session->set('file_uri', $file_uri);
+    $session->set('title', $title ?? '');
+    $session->set('body', $body ?? '');
+    $session->set('file_uri', $file_uri ?? '');
 
     return $form;
+  }
+
+  /**
+   * Redirects to template controlled by Drupal\calvin\Controller\AdminFormViewController::view
+   *
+   * @return RedirectResponse
+   */
+  public function redirectToTemplate(array &$form, FormStateInterface $form_state) {
+    $fid = $form_state->getValue(['file', 0]) ?? '';
+
+    if ($fid) {
+      $file = File::load($fid);
+      $file->setTemporary();
+      $file->save();
+      $file_uri = $file->getFileUri();
+    }
+
+    $title = $form_state->getValue('title');
+    $body = $form_state->getValue('body');
+
+    $param['param'] = [
+      'title' => $title ?? '',
+      'body' => $body ?? '',
+      'file_uri' => $file_uri ?? ''
+    ];
+    $url = Url::fromRoute('calvin.admin_form_view_controller_view', $param);
+
+    $form_state->setRedirectUrl($url);
+    return $form_state;
+
   }
 
 }
